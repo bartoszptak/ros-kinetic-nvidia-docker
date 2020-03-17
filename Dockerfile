@@ -121,11 +121,11 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir /root/share
 
 # create kalibr tool
-RUN mkdir /home/catkin_ws
-    mkdir /home/catkin_ws/src
-    cd /home/catkin_ws/src
-    git clone https://github.com/ethz-asl/kalibr
-    cd ..
+RUN mkdir /home/catkin_ws && \
+    mkdir /home/catkin_ws/src && \
+    cd /home/catkin_ws/src && \
+    git clone https://github.com/ethz-asl/kalibr && \
+    cd .. && \
     catkin_make
 
 # Add new sudo user
