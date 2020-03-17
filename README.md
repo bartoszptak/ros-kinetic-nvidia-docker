@@ -33,7 +33,7 @@ sudo nvidia-docker run -it \
   --privileged \
   --volume=$XSOCK:$XSOCK:rw \
   --volume=$XAUTH:$XAUTH:rw \
-  --volume="$HOME/shared:/root/share:rw" \
+  --volume="$HOME/shared:/home/share:rw" \
   --env="QT_X11_NO_MITSHM=1" \
   --env="XAUTHORITY=${XAUTH}" \
   --env="DISPLAY" \
