@@ -115,7 +115,7 @@ RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc
 # Install ROS packages
 RUN apt-get update && apt-get install -y \
        ros-kinetic-xxx
-   rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*
 
 # create shared directory
 RUN mkdir /root/share
