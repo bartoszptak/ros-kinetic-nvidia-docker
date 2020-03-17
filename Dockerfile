@@ -120,13 +120,6 @@ RUN apt-get update && apt-get install -y \
 # create shared directory
 RUN mkdir /root/share
 
-# create kalibr tool
-RUN mkdir -p /home/catkin_ws/src && \
-    cd /home/catkin_ws/src && \
-    git clone https://github.com/ethz-asl/kalibr
-
-RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd /home/catkin_ws; catkin_make'
-
 # Add new sudo user
 #ENV USERNAME=username
 #RUN useradd -m $USERNAME && \
