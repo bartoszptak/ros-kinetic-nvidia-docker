@@ -124,7 +124,7 @@ RUN mkdir /root/share
 # install kalibr dep
 WORKDIR /root
 RUN apt update && \
-    apt-get install -y wget python-setuptools python-rosinstall python-igraph ipython libeigen3-dev libboost-all-dev doxygen libopencv-dev ros-kinetic-vision-opencv ros-kinetic-image-transport-plugins ros-kinetic-cmake-modules python-software-properties software-properties-common libpoco-dev python-matplotlib python-scipy python-git python-pip ipython libtbb-dev libblas-dev liblapack-dev python-catkin-tools libv4l-dev
+    apt-get install -y wget vim python-setuptools python-rosinstall python-igraph ipython libeigen3-dev libboost-all-dev doxygen libopencv-dev ros-kinetic-vision-opencv ros-kinetic-image-transport-plugins ros-kinetic-cmake-modules python-software-properties software-properties-common libpoco-dev python-matplotlib python-scipy python-git python-pip ipython libtbb-dev libblas-dev liblapack-dev python-catkin-tools libv4l-dev
 
 # install kalibr
 RUN mkdir -p /root/catkin_ws/src \
