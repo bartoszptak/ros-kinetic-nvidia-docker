@@ -24,7 +24,11 @@ xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | sudo xauth -f $XAUTH nmerge -
 ```
 5. Start the container:
 ```bash
-sudo nvidia-docker run -it --volume=$XSOCK:$XSOCK:rw
---volume=$XAUTH:$XAUTH:rw --env="XAUTHORITY=${XAUTH}"
---env="DISPLAY" <image_name>
+sudo nvidia-docker run -it \
+  --volume=$XSOCK:$XSOCK:rw \
+  --volume=$XAUTH:$XAUTH:rw \
+  --env="XAUTHORITY=${XAUTH}"
+  --env="DISPLAY"
+  <image_name>
+  bash
 ```
