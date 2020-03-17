@@ -16,7 +16,7 @@ look at the commented out lines at the end of file.
 ```bash
 git clone git@github.com:bartoszptak/ros-kinetic-nvidia-docker.git
 cd ros-kinetic-nvidia-docker
-sudo docker build -t nsfw .
+docker build -t nsfw .
 ```
 4. Run the following commands to give docker permission to run on X:
 ```bash
@@ -29,7 +29,7 @@ mkdir $HOME/shared
 ```
 5. Start the container:
 ```bash
-sudo nvidia-docker run -it \
+nvidia-docker run -it \
   --privileged \
   --volume=$XSOCK:$XSOCK:rw \
   --volume=$XAUTH:$XAUTH:rw \
