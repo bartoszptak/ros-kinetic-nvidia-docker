@@ -33,7 +33,7 @@ nvidia-docker run -it \
   --privileged \
   --volume=$XSOCK:$XSOCK:rw \
   --volume=$XAUTH:$XAUTH:rw \
-  --volume="$HOME/shared:/home/share:rw" \
+  --volume="$HOME/shared:/root/share:rw" \
   --env="QT_X11_NO_MITSHM=1" \
   --env="XAUTHORITY=${XAUTH}" \
   --env="DISPLAY" \
@@ -42,22 +42,7 @@ nvidia-docker run -it \
   nsfw:latest \
   bash
 ```
-6. Build kalibr
-```bash
-mkdir -p /home/catki_ws/src
-cd /home/catki_ws/src
-git clone https://github.com/ethz-asl/kalibr.git
-cd ..
-```
-```bash
-apt update
-apt install -y wget
-apt-get install -y python-setuptools python-rosinstall ipython libeigen3-dev libboost-all-dev doxygen libopencv-dev ros-kinetic-vision-opencv ros-kinetic-image-transport-plugins ros-kinetic-cmake-modules python-software-properties software-properties-common libpoco-dev python-matplotlib python-scipy python-git python-pip ipython libtbb-dev libblas-dev liblapack-dev python-catkin-tools libv4l-dev
-```
 
-```bash
-catkin_make
-```
 
 ## docker tips
 * docker exec -it SuperContainer bash
