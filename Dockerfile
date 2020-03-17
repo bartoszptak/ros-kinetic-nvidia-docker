@@ -121,9 +121,9 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir /root/share
 
 # create kalibr tool
-RUN mkdir /root/catkin_ws
-    mkdir /root/catkin_ws/src
-    cd /root/catkin_ws/src
+RUN mkdir /home/catkin_ws
+    mkdir /home/catkin_ws/src
+    cd /home/catkin_ws/src
     git clone https://github.com/ethz-asl/kalibr
     cd ..
     catkin_make
