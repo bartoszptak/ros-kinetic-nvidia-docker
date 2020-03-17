@@ -10,7 +10,7 @@ look at the commented out lines at the end of file.
 
 # Installation
 1. Install docker
-2. Install nvidia-docker using instructions
+2. Install nvidia-docker2 using instructions
 [here](https://github.com/NVIDIA/nvidia-docker).
 3. Clone and build
 ```bash
