@@ -141,4 +141,4 @@ RUN mkdir /home/catkin_ws
 
 # Uncomment to change default user and working directory
 #USER rosmaster
-#WORKDIR /home/rosmaster/
+WORKDIR /home/
