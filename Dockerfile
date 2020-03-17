@@ -38,7 +38,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         x11proto-gl-dev && \
     rm -rf /var/lib/apt/lists/*
 
-WORKDIR /home
+WORKDIR /opt/libglvnd
 
 RUN git clone --branch=v1.0.0 https://github.com/NVIDIA/libglvnd.git . && \
     ./autogen.sh && \
@@ -115,10 +115,24 @@ RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc
 # # Install ROS packages
 RUN apt-get update && apt-get install -y \
        python-catkin-tools \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && echo "source /opt/ros/kinetic/setup.bash" >> /root/.bashrc
 
 # create shared directory
 RUN mkdir /root/share
+
+# install kalibr dep
+WORKDIR /root
+RUN apt update && \
+    apt-get install -y wget python-setuptools python-rosinstall ipython libeigen3-dev libboost-all-dev doxygen libopencv-dev ros-kinetic-vision-opencv ros-kinetic-image-transport-plugins ros-kinetic-cmake-modules python-software-properties software-properties-common libpoco-dev python-matplotlib python-scipy python-git python-pip ipython libtbb-dev libblas-dev liblapack-dev python-catkin-tools libv4l-dev
+
+# install kalibr
+RUN mkdir -p /root/catki_ws/src \
+    && bash -c "source /opt/ros/kinetic/setup.bash" \
+    && cd /root/catki_ws/src \
+    && git clone https://github.com/ethz-asl/kalibr.git
+
+RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd /root/catki_ws; catkin_make'
 
 # Add new sudo user
 #ENV USERNAME=username
