@@ -1,6 +1,5 @@
 # ros-kinetic-nvidia-docker
-Extends the `osrf/ros:kinetic-desktop-full` image by adding opengl, glvnd and
-cuda 8.0. This makes opengl work from any docker environment when used with
+Extends the `osrf/ros:kinetic-desktop-full` image by adding opengl, glvnd, cuda 8.0 and kalibr. This makes opengl work from any docker environment when used with
 [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker). Thanks to
 [phromo](https://github.com/phromo/ros-indigo-desktop-full-nvidia) for the
 baseline. Note that this is currently supported for Linux systems only.
