@@ -38,7 +38,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         x11proto-gl-dev && \
     rm -rf /var/lib/apt/lists/*
 
-WORKDIR /opt/libglvnd
+WORKDIR /home
 
 RUN git clone --branch=v1.0.0 https://github.com/NVIDIA/libglvnd.git . && \
     ./autogen.sh && \
@@ -113,22 +113,19 @@ RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc
     apt-get update
 
 # # Install ROS packages
-# RUN apt-get update && apt-get install -y \
-#        ros-kinetic-*
-#     rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+       python-catkin-tools \
+    && rm -rf /var/lib/apt/lists/*
 
 # create shared directory
 RUN mkdir /root/share
 
 # create kalibr tool
-RUN mkdir /home/catkin_ws && \
-    mkdir /home/catkin_ws/src && \
+RUN mkdir -p /home/catkin_ws/src && \
     cd /home/catkin_ws/src && \
-    git clone https://github.com/ethz-asl/kalibr && \
-    cd .. && \
-    echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc && \
-    source ~/.bashrc && \
-    catkin_make
+    git clone https://github.com/ethz-asl/kalibr
+
+RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd /home/catkin_ws/src; catkin_make'
 
 # Add new sudo user
 #ENV USERNAME=username
@@ -143,4 +140,4 @@ RUN mkdir /home/catkin_ws && \
 
 # Uncomment to change default user and working directory
 #USER rosmaster
-WORKDIR /home/
+# WORKDIR /home/
