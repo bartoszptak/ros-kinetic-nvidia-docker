@@ -112,9 +112,9 @@ RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc
     apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116 && \
     apt-get update
 
-# Install ROS packages
-RUN apt-get update && apt-get install -y \
-       ros-kinetic-*
+# # Install ROS packages
+# RUN apt-get update && apt-get install -y \
+#        ros-kinetic-*
 #     rm -rf /var/lib/apt/lists/*
 
 # create shared directory
