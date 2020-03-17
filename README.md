@@ -42,3 +42,14 @@ nvidia-docker run -it \
   nsfw:latest \
   bash
 ```
+6. Build kalibr
+```bash
+mkdir -p /home/catki_ws/src
+cd /home/catki_ws/src
+git clone https://github.com/ethz-asl/kalibr.git
+cd ..
+catkin_make
+```
+
+## docker tips
+* docker exec -it SuperContainer bash
