@@ -126,6 +126,8 @@ RUN mkdir /home/catkin_ws && \
     cd /home/catkin_ws/src && \
     git clone https://github.com/ethz-asl/kalibr && \
     cd .. && \
+    echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc && \
+    source ~/.bashrc && \
     catkin_make
 
 # Add new sudo user
