@@ -127,9 +127,9 @@ RUN apt update && \
     apt-get install -y wget python-setuptools python-rosinstall python-igraph ipython libeigen3-dev libboost-all-dev doxygen libopencv-dev ros-kinetic-vision-opencv ros-kinetic-image-transport-plugins ros-kinetic-cmake-modules python-software-properties software-properties-common libpoco-dev python-matplotlib python-scipy python-git python-pip ipython libtbb-dev libblas-dev liblapack-dev python-catkin-tools libv4l-dev
 
 # install kalibr
-RUN mkdir -p /root/catki_ws/src \
+RUN mkdir -p /root/catkin_ws/src \
     && bash -c "source /opt/ros/kinetic/setup.bash" \
-    && cd /root/catki_ws/src \
+    && cd /root/catkin_ws/src \
     && git clone https://github.com/ethz-asl/kalibr.git
 
 RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd /root/catki_ws; catkin_make'
