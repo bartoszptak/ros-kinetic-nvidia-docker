@@ -113,9 +113,20 @@ RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc
     apt-get update
 
 # Install ROS packages
-#RUN apt-get update && apt-get install -y \
-#        ros-kinetic-xxx
-#    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+       ros-kinetic-xxx
+   rm -rf /var/lib/apt/lists/*
+
+# create shared directory
+RUN mkdir /root/share
+
+# create kalibr tool
+RUN mkdir /root/catkin_ws
+    mkdir /root/catkin_ws/src
+    cd /root/catkin_ws/src
+    git clone https://github.com/ethz-asl/kalibr
+    cd ..
+    catkin_make
 
 # Add new sudo user
 #ENV USERNAME=username
