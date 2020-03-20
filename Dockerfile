@@ -132,7 +132,7 @@ RUN mkdir -p /root/catkin_ws/src \
     && cd /root/catkin_ws/src \
     && git clone https://github.com/ethz-asl/kalibr.git
 
-RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd /root/catki_ws; catkin_make'
+RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd /root/catkin_ws; catkin_make'
 
 # Add new sudo user
 #ENV USERNAME=username
